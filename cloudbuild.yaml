@@ -1,7 +1,7 @@
 steps:
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}', '.']
-  - name: gcr.io/cloud-builders/docker
+  - name: 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}'
     args:
       - '/bin/sh'
       - '-c'
