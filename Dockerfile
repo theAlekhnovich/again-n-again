@@ -1,3 +1,21 @@
-FROM debian:bookworm-slim
-RUN sudo apt install mutt msmtp ln -sf /usr/bin/msmtp /usr/sbin/sendmail
-ADD msmtprc /etc/msmtprc
+FROM node:14
+
+# Create app directory
+WORKDIR /app
+
+# Install app dependencies
+# A wildcard is used to ensure both package.json AND package-lock.json are copied
+# where available (npm@5+)
+COPY package.json .
+
+RUN yarn install
+# If you are building your code for production
+# RUN npm ci --only=production
+
+# Bundle app source
+COPY . .
+
+RUN yarn build
+
+EXPOSE $PORT
+CMD [ "node", "dist"]

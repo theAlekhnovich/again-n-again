@@ -1,9 +1,16 @@
 steps:
   - name: gcr.io/cloud-builders/docker
     args: ['build', '-t', 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}', '.']
-  - name: 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}'
+  - name: gcr.io/cloud-builders/docker
+    args: ['push', 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}']
+  - name: gcr.io/cloud-builders/gcloud
     args:
-      - '/bin/sh'
-      - '-c'
-      - |
-        echo "body" | mutt -s "A mail from GCB" -- u.aliakhnovich@sam-solutions.com
+      - run
+      - deploy
+      - send-build-alerts
+      - --project=test-hellotwin
+      - --image=eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}
+      - --region=europe-central2
+      - --platform=managed
+      - --no-allow-unauthenticated
+
