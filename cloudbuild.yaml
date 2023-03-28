@@ -1,0 +1,17 @@
+steps:
+  - name: gcr.io/cloud-builders/docker
+    args: ['build', '-t', 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}', '.']
+  - name: gcr.io/cloud-builders/docker
+    images: 'eu.gcr.io/test-hellotwin/mailer-image:${SHORT_SHA}'
+    entrypoint: 'bash'
+    args:
+      - '/bin/sh'
+      - '-c'
+      - |
+        echo $$msmtp-pswd > /dev/null
+        echo "body" | mutt -s "A mail from GCB" -- u.aliakhnovich@sam-solutions.com
+    secretEnv: [msmtp-pswd]
+availableSecrets:
+  secretManager:
+    - versionName: projects/test-hellotwin/secrets/msmtp-pswd/versions/latest
+      env: msmtp-pswd
