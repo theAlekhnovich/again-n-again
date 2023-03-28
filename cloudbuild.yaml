@@ -13,4 +13,3 @@ steps:
       - --region=europe-central2
       - --platform=managed
       - --no-allow-unauthenticated
-
