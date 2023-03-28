@@ -12,5 +12,5 @@ steps:
     secretEnv: [msmtp-pswd]
 availableSecrets:
   secretManager:
-    - versionName: projects/test-hellotwin/secrets/msmtp-pswd/versions/latest
+    - versionName:  projects/636510427510/secrets/msmtp-pswd/latest
       env: msmtp-pswd
