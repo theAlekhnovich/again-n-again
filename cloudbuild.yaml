@@ -12,5 +12,5 @@ steps:
     secretEnv: [msmtp-pswd]
 availableSecrets:
   secretManager:
-    - versionName:  projects/636510427510/secrets/msmtp-pswd/latest
+    - versionName:  projects/636510427510/secrets/msmtp-pswd
       env: msmtp-pswd
