@@ -13,10 +13,10 @@ steps:
       - --region=europe-central2
       - --platform=managed
       - --no-allow-unauthenticated
-    secretEnv: ['USR', 'PWD']
-availableSecrets:
-    secretManager:
-      - versionName: projects/636510427510/secrets/sender-s_id/versions/1
-        env: USR
-      - versionName: projects/636510427510/secrets/sender-s_secret/versions/1
-        env: PWD
+#    secretEnv: ['USR', 'PWD']
+#availableSecrets:
+#    secretManager:
+#      - versionName: projects/636510427510/secrets/sender-s_id/versions/1
+#        env: USR
+#      - versionName: projects/636510427510/secrets/sender-s_secret/versions/1
+#        env: PWD
