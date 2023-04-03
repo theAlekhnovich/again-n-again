@@ -6,11 +6,6 @@ export const PROJECT_NAME = process.env.PROJECT_NAME;
 export const MESSAGE_SUBTITLE = process.env.MESSAGE_SUBTITLE;
 
 /**
- * Google Chat Room Credetials
- */
-export const GOOGLE_CHAT_ROOM_WEBHOOK = process.env.GOOGLE_CHAT_ROOM_WEBHOOK;
-
-/**
  * Sender and recipients email addresses and their names
  */
 export const EMAIL_USERS = {
